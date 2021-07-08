@@ -36,8 +36,6 @@ namespace LoggerProject.Models
                 Sublogs = new List<ILog>();
         }
 
-        private Log() { }
-        
         public ILog Owner { get; }
 
         public List<ILog> Sublogs { get; }
@@ -83,7 +81,9 @@ namespace LoggerProject.Models
             if (useOffset) 
                 offset = CommonMethods.GetOffset(log.LogLevel);
 
-            var sys = $@"[{offset}{log.Date.ToString(CommonResources.DateFormat)}][{log.Type}]";
+
+            var info = CommonMethods.GetPadRightInfo(log.Type);
+            var sys = $@"{offset}[{log.Date.ToString(CommonResources.DateFormat)}]{info}";
             var str = $@"{sys} - {log.Text}";
             sw.WriteLine(str);
 
@@ -101,7 +101,7 @@ namespace LoggerProject.Models
 
             sw.Flush();
 
-            if (!log.Sublogs.Any())
+            if (log.Sublogs == null || !log.Sublogs.Any())
                 return;
 
             log.Sublogs.ForEach(x => WriteLogToFile(x, sw, useOffset));

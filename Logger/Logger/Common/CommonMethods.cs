@@ -1,5 +1,4 @@
 ﻿using LoggerProject.Enums;
-using LoggerProject.Resources;
 using System.Text.RegularExpressions;
 
 namespace LoggerProject.Common
@@ -13,13 +12,13 @@ namespace LoggerProject.Common
             switch (format)
             {
                 case LogFileFormats.log:
-                    extension = @"\.log";
+                    extension = @".log";
                     break;
                 case LogFileFormats.txt:
-                    extension = @"\.txt";
+                    extension = @".txt";
                     break;
                 default:
-                    extension = @"\.log";
+                    extension = @".log";
                     break;
             }
 
@@ -32,10 +31,15 @@ namespace LoggerProject.Common
 
             for (int i = 0; i < count; i++)
             {
-                res += CommonResources.OffsetChar;
+                res += "\t";
             }
 
             return res;
+        }
+
+        public static string GetPadRightInfo(InformationType type, int count = 13)
+        {
+            return $@"[{type}]".PadRight(count);
         }
     }
 }

@@ -68,14 +68,5 @@ namespace LoggerProject.Resources {
                 return ResourceManager.GetString("DateFormat", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на \t.
-        /// </summary>
-        internal static string OffsetChar {
-            get {
-                return ResourceManager.GetString("OffsetChar", resourceCulture);
-            }
-        }
     }
 }

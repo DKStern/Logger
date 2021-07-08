@@ -52,7 +52,8 @@ namespace LoggerProject.Models
 
         private void WriteLog(string text, InformationType type, Exception exception = null)
         {
-            var sys = $@"[{GetCurDateTime()}][{type}]";
+            var info = CommonMethods.GetPadRightInfo(type);
+            var sys = $@"[{GetCurDateTime()}]{info}";
             var str = $@"{sys} - {text}";
             sw.WriteLine(str);
 

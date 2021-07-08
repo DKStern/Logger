@@ -121,8 +121,4 @@
     <value>dd.MM.yyyy HH:mm:ss.fff UTCz</value>
     <comment>Пример: 08.07.2021 20:17:37.987 UTC+5</comment>
   </data>
-  <data name="OffsetChar" xml:space="preserve">
-    <value>\t</value>
-    <comment>Табуляция</comment>
-  </data>
 </root>
