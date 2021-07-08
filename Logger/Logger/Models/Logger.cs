@@ -25,7 +25,7 @@ namespace LoggerProject.Models
 
             sw = new StreamWriter(Path, Append, Encoding)
             {
-                AutoFlush = true
+                AutoFlush = false
             };
         }
 
