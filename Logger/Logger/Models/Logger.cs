@@ -18,7 +18,7 @@ namespace LoggerProject.Models
         /// <param name="path">Путь с названием файла, в котором нужно сохранить лог</param>
         /// <param name="append">Дописывать в файл или перезаписывать</param>
         /// <param name="encoding">Кодировка файла</param>
-        public Logger(string path, bool append, Encoding encoding)
+        public Logger(string path, Encoding encoding, bool append = false)
         {
             Path = CommonMethods.CheckFormat(path, LogFileFormats.log);
             Append = append;

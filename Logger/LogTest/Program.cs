@@ -1,4 +1,5 @@
-﻿using LoggerProject.Enums;
+﻿using LoggerProject.Common;
+using LoggerProject.Enums;
 using LoggerProject.Models;
 using System;
 using System.Text;
@@ -9,7 +10,14 @@ namespace LogTest
     {
         static void Main(string[] args)
         {
-            Logger logger = new Logger(@"C:/temp.exe", false, Encoding.UTF8);
+            TestSysInfo();
+
+
+        }
+
+        private static void TestLogs()
+        {
+            Logger logger = new Logger(@"C:/temp.exe", Encoding.UTF8);
 
             logger.Debug("Debug");
             logger.Information("Information");
@@ -30,7 +38,13 @@ namespace LogTest
             log.WriteLog("Test", InformationType.DEBUG);
 
             log.WriteAllToFile(@"C:/temp2.exe", Encoding.UTF8, true);
+        }
 
+        private static void TestSysInfo()
+        {
+            Logger logger = new Logger(@"C:/sys.sys", Encoding.UTF8);
+            
+            logger.Debug(SystemInfo.GetTickCount64());
         }
     }
 }
