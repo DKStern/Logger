@@ -1,9 +1,10 @@
-﻿using LoggerProject.Enums;
+﻿using LoggerProject.Common;
+using LoggerProject.Enums;
 using LoggerProject.Interfaces;
 using System;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
+using LoggerProject.Resources;
 
 namespace LoggerProject.Models
 {
@@ -19,7 +20,7 @@ namespace LoggerProject.Models
         /// <param name="encoding">Кодировка файла</param>
         public Logger(string path, bool append, Encoding encoding)
         {
-            Path = CheckFormat(path);
+            Path = CommonMethods.CheckFormat(path, LogFileFormats.log);
             Append = append;
             Encoding = encoding;
 
@@ -35,13 +36,9 @@ namespace LoggerProject.Models
         ~Logger()
         {
             sw.Flush();
+            sw.Dispose();
         }
-
-        private string CheckFormat(string path)
-        {
-            return Regex.Replace(path, @"\.\w+", ".log");
-        }
-
+        
         public string Path { get; }
 
         public bool Append { get; }
@@ -50,7 +47,7 @@ namespace LoggerProject.Models
 
         private string GetCurDateTime()
         {
-            return DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff UTCz");
+            return DateTime.Now.ToString(CommonResources.DateFormat);
         }
 
         private void WriteLog(string text, InformationType type, Exception exception = null)

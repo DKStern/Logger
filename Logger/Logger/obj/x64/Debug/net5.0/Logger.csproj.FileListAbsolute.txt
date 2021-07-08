@@ -10,3 +10,5 @@ C:\Users\Ermol\Documents\CodeProjects\Logger\Logger\Logger\obj\x64\Debug\net5.0\
 C:\Users\Ermol\Documents\CodeProjects\Logger\Logger\Logger\obj\x64\Debug\net5.0\LoggerProject.dll
 C:\Users\Ermol\Documents\CodeProjects\Logger\Logger\Logger\obj\x64\Debug\net5.0\ref\LoggerProject.dll
 C:\Users\Ermol\Documents\CodeProjects\Logger\Logger\Logger\obj\x64\Debug\net5.0\LoggerProject.pdb
+C:\Users\Ermol\Documents\CodeProjects\Logger\Logger\Logger\obj\x64\Debug\net5.0\LoggerProject.Resources.CommonResources.resources
+C:\Users\Ermol\Documents\CodeProjects\Logger\Logger\Logger\obj\x64\Debug\net5.0\Logger.csproj.GenerateResource.cache
